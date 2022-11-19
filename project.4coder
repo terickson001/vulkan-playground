@@ -1,0 +1,71 @@
+version(1);
+project_name = "Vulkan Sandbox";
+
+patterns = {
+"*.odin",
+"*.glsl",
+"*.frag",
+"*.vert",
+"*.geom",
+"*.tesc",
+"*.tese",
+"*.comp",
+"*.rgen",
+"*.rint",
+"*.rahit",
+"*.rchit",
+"*.rmiss",
+"*.rcall",
+"*.sh",
+"*.4coder",
+"*.txt",
+};
+blacklist_patterns = {
+".*",
+};
+load_paths_custom = {
+ {"."},
+};
+load_paths = {
+ { load_paths_custom, .os = "win"  },
+ { load_paths_custom, .os = "linux"},
+ { load_paths_custom, .os = "mac"  },
+};
+
+command_list = {
+ { .name = "Run Debug",
+   .out = "*compilation*", .footer_panel = true, .save_dirty_files = true,
+   .cmd = { {"odin run . -o:minimal -debug", .os ="win"},
+            {"odin run . -o:minimal -debug", .os ="linux"},
+            {"odin run . -o:minimal -debug", .os ="mac"  }, }, },
+
+ { .name = "Build Debug",
+   .out = "*compilation*", .footer_panel = true, .save_dirty_files = true,
+   .cmd = { {"odin build . -o:minimal", .os ="win"},
+            {"odin build . -o:minimal -debug", .os ="linux"},
+            {"odin build . -o:minimal -debug", .os ="mac"  }, }, },
+
+{ .name = "Run",
+   .out = "*compilation*", .footer_panel = true, .save_dirty_files = true,
+   .cmd = { {".\\vulkan", .os ="win"},
+            {"./vulkan", .os ="linux"},
+            {"./vulkan", .os ="mac"  }, }, },
+
+{ .name = "Run Release",
+   .out = "*compilation*", .footer_panel = true, .save_dirty_files = true,
+   .cmd = { {"odin run . -o:speed", .os ="win"},
+            {"odin run . -o:speed", .os ="linux"},
+            {"odin run . -o:speed", .os ="mac"  }, }, },
+
+ { .name = "Build Release",
+   .out = "*compilation*", .footer_panel = true, .save_dirty_files = true,
+   .cmd = { {"odin build . -o:speed", .os ="win"},
+            {"odin build . -o:speed", .os ="linux"},
+            {"odin build . -o:speed", .os ="mac"  }, }, },
+};
+
+fkey_command[1] = "Run";
+fkey_command[2] = "Build Debug"; 
+fkey_command[3] = "Run Debug";
+fkey_command[4] = "Run Release";
+fkey_command[5] = "Build Release";
