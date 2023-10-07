@@ -1,1 +1,1 @@
-return {["active_view"]=1,["views"]={[1]={["scroll"]={["x"]=0,["y"]=4448},["type"]="doc",["filename"]="main.odin",["text"]=false,["active"]=true,["selection"]={[1]=220,[2]=29,[3]=220,[4]=29}}},["type"]="leaf"}
+return {["type"]="leaf",["views"]={}}

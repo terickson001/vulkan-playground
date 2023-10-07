@@ -14,7 +14,7 @@ buffer_draw :: proc(ctx: ^Context, buffer: ^Buffer, pos: [2]f32)
 {
 	pos := pos;
 	renderer := &ctx.renderers[ctx.curr_frame];
-	fmt.println(renderer.curr_job.font.ascent);
+	//fmt.println(renderer.curr_job.font.ascent);
 	pos.y += f32(renderer.curr_job.font.ascent);
 	
 	line_start := pos.x;
